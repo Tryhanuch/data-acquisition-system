@@ -61,6 +61,7 @@ public class Project {
 
         visitor.setIpAddress("192.168.1.0");
         visitor.setDataFirstVisit(new Date());
+        Date date = new Date();
         visitor.setIdentifier("identifier");
         visitorDAO.addVisitor(visitor);
 
