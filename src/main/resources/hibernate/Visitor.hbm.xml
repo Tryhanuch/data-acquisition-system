@@ -4,11 +4,8 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="main.java.com.netcracker.course.das.server.bean.Visitor" table="VISITORS">
-        <id name="id" column="VISITOR_ID" type="java.lang.Long">
-            <generator class="increment"/>
-        </id>
+        <id name="id" column="VISITOR_ID" type="java.lang.String"> </id>
         <property name="ipAddress" column="IP_ADDRESS" type="java.lang.String"/>
         <property name="dataFirstVisit" column="DATA_FIRST_VISIT" type="java.util.Date"/>
-        <property name="identifier" column="IDENTIFIER" type="java.lang.String"/>
     </class>
 </hibernate-mapping>

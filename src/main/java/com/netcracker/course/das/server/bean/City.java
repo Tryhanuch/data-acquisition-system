@@ -1,18 +1,20 @@
 package main.java.com.netcracker.course.das.server.bean;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.hibernate.annotations.Proxy;
+
+import javax.persistence.*;
 
 /**
  * Created by Vova on 23.01.2015.
  */
 @Entity
 @Table(name = "CITIES")
+@Proxy(lazy=false)
 public class City {
     @Id
     @Column(name = "CITY_ID")
+    @GeneratedValue(generator = "CITIES_SEQ")
+    @SequenceGenerator(name = "CITIES_SEQ", sequenceName = "CITIES_SEQ")
     private long id;
     @Column(name = "CITY_NAME")
     private String name;

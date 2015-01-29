@@ -1,5 +1,6 @@
 package main.java.com.netcracker.course.das.server.dao;
 
+import main.java.com.netcracker.course.das.server.bean.OperatingSystem;
 import main.java.com.netcracker.course.das.server.bean.Visitor;
 
 import java.sql.SQLException;
@@ -9,4 +10,6 @@ import java.sql.SQLException;
  */
 public interface VisitorDAO {
     public void addVisitor(Visitor visitor) throws SQLException;
+
+    public Visitor getVisitor(String id) throws SQLException;
 }

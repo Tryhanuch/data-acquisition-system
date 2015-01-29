@@ -4,10 +4,10 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="main.java.com.netcracker.course.das.server.bean.OperatingSystem" table="OPERATING_SYSTEMS">
-        <id name="id" column="OPERATING_SYSTEM_ID" type="java.lang.Long">
-            <generator class="increment"/>
-        </id>
-        <property name="name" column="OPERATING_SYSTEM_NAME" type="java.lang.String"/>
-        <property name="version" column="OPERATING_SYSTEM_VERSION" type="java.lang.String"/>
-    </class>
+    <id name="id" column="OPERATING_SYSTEM_ID" type="java.lang.Long">
+        <generator class="increment"/>
+    </id>
+    <property name="name" column="OPERATING_SYSTEM_NAME" type="java.lang.String"/>
+    <property name="version" column="OPERATING_SYSTEM_VERSION" type="java.lang.String"/>
+</class>
 </hibernate-mapping>

@@ -1,18 +1,20 @@
 package main.java.com.netcracker.course.das.server.bean;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.hibernate.annotations.Proxy;
+
+import javax.persistence.*;
 
 /**
  * Created by Vova on 23.01.2015.
  */
 @Entity
 @Table(name = "OPERATING_SYSTEMS")
+@Proxy(lazy=false)
 public class OperatingSystem {
     @Id
     @Column(name = "OPERATING_SYSTEM_ID")
+    @GeneratedValue(generator = "OPERATING_SYSTEMS_SEQ")
+    @SequenceGenerator(name = "OPERATING_SYSTEMS_SEQ", sequenceName = "OPERATING_SYSTEMS_SEQ")
     private long id;
     @Column(name = "OPERATING_SYSTEM_NAME")
     private String name;

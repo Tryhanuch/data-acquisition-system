@@ -1,5 +1,6 @@
 package main.java.com.netcracker.course.das.server.dao.impl;
 
+import main.java.com.netcracker.course.das.server.bean.Browser;
 import main.java.com.netcracker.course.das.server.bean.User;
 import main.java.com.netcracker.course.das.server.dao.UserDAO;
 import main.java.com.netcracker.course.das.server.util.HibernateUtil;
@@ -24,5 +25,20 @@ public class UserDAOImpl implements UserDAO {
         } finally {
             if((session != null) && (session.isOpen()))session.close();
         }
+    }
+
+    @Override
+    public User getUser(Long id) throws SQLException {
+        Session session = null;
+        User result = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            result = (User) session.load(User.class, id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if((session != null) && (session.isOpen()))session.close();
+        }
+        return result;
     }
 }

@@ -1,6 +1,8 @@
 package main.java.com.netcracker.course.das.server.bean;
 
 
+import org.hibernate.annotations.Proxy;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -9,24 +11,29 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "VISITORS")
+@Proxy(lazy=false)
 public class Visitor {
     @Id
     @Column(name = "VISITOR_ID")
-    private long id;
+    private String id;
     @Column(name = "IP_ADDRESS")
     private String ipAddress;
     @Column(name = "DATA_FIRST_VISIT")
     private Date dataFirstVisit;
-    @Column(name = "IDENTIFIER")
-    private String identifier;
+    @ManyToOne
+    @JoinColumn(name = "COUNTRY_ID", referencedColumnName = "COUNTRY_ID")
+    private Country country;
+    @ManyToOne
+    @JoinColumn(name = "CITY_ID", referencedColumnName = "CITY_ID")
+    private City city;
 
     public Visitor(){}
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -46,11 +53,19 @@ public class Visitor {
         this.dataFirstVisit = dataFirstVisit;
     }
 
-    public String getIdentifier() {
-        return identifier;
+    public Country getCountry() {
+        return country;
     }
 
-    public void setIdentifier(String identifier) {
-        this.identifier = identifier;
+    public void setCountry(Country country) {
+        this.country = country;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
     }
 }

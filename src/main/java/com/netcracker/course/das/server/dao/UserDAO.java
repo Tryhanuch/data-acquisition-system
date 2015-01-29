@@ -1,5 +1,6 @@
 package main.java.com.netcracker.course.das.server.dao;
 
+import main.java.com.netcracker.course.das.server.bean.OperatingSystem;
 import main.java.com.netcracker.course.das.server.bean.User;
 
 import java.sql.SQLException;
@@ -9,4 +10,6 @@ import java.sql.SQLException;
  */
 public interface UserDAO {
     public void addUser(User user) throws SQLException;
+
+    public User getUser(Long id) throws SQLException;
 }
